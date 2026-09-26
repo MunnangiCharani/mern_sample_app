@@ -8,6 +8,13 @@ router.get("/employees", async (req, res) => {
   res.send(result);
 });
 
+router.delete("/deleteemp/:id",async (req,res)=>{
+  let result=await users.findByIdAndDelete(req.params.id);
+  if(result){
+       res.send("Delete Route Called");
+  }
+});
+
 router.post("/assign-task", (req, res) => {
   res.send("Task assigned");
 });
